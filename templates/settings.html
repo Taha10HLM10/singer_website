@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block title %}Settings{% endblock %} {% block
+content %}
+<section class="section">
+  <h1 class="page-title">⚙️ Personal Settings</h1>
+
+  <form method="POST" action="{{ url_for('settings') }}" class="settings-form">
+    <div class="form-row">
+      <label>Display Name</label>
+      <input type="text" name="name" value="{{ current.name }}" required />
+    </div>
+
+    <div class="form-row">
+      <label>Biography</label>
+      <textarea name="bio" rows="4">{{ current.bio }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <label>Email</label>
+      <input type="email" name="email" value="{{ current.email }}" />
+    </div>
+
+    <div class="form-row">
+      <label>Phone Number</label>
+      <input
+        type="text"
+        name="phone"
+        value="{{ current.phone }}"
+        placeholder="e.g. +123456789"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>Instagram</label>
+      <input
+        type="text"
+        name="instagram"
+        value="{{ current.instagram }}"
+        placeholder="@username"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>Telegram</label>
+      <input
+        type="text"
+        name="telegram"
+        value="{{ current.telegram }}"
+        placeholder="@username"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>YouTube</label>
+      <input
+        type="text"
+        name="youtube"
+        value="{{ current.youtube }}"
+        placeholder="Channel Link"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>Website</label>
+      <input
+        type="text"
+        name="website"
+        value="{{ current.website }}"
+        placeholder="https://..."
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+    <a href="{{ url_for('admin') }}" class="btn btn-outline">Back to Admin</a>
+  </form>
+</section>
+{% endblock %}
