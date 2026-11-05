@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}About - {{ info.name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <h1 class="page-title">About Me</h1>
+  <div class="about-box">
+    <div class="about-avatar">🎤</div>
+    <div class="about-text">
+      <h2>{{ info.name }}</h2>
+      <p>{{ info.bio }}</p>
+      <ul class="about-contact-list">
+        {% if info.email %}
+        <li>📧 <a href="mailto:{{ info.email }}">{{ info.email }}</a></li>
+        {% endif %} {% if info.phone %}
+        <li>📞 {{ info.phone }}</li>
+        {% endif %} {% if info.instagram %}
+        <li>📷 {{ info.instagram }}</li>
+        {% endif %} {% if info.telegram %}
+        <li>✈️ {{ info.telegram }}</li>
+        {% endif %} {% if info.youtube %}
+        <li>▶️ {{ info.youtube }}</li>
+        {% endif %} {% if info.website %}
+        <li>
+          🌐 <a href="{{ info.website }}" target="_blank">{{ info.website }}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
