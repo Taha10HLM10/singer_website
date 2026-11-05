@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Contact - {{ info.name }}{% endblock
+%} {% block content %}
+<section class="section">
+  <h1 class="page-title">Contact Us</h1>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <ul class="about-contact-list">
+        {% if info.email %}
+        <li>📧 <a href="mailto:{{ info.email }}">{{ info.email }}</a></li>
+        {% endif %} {% if info.phone %}
+        <li>📞 {{ info.phone }}</li>
+        {% endif %} {% if info.instagram %}
+        <li>📷 {{ info.instagram }}</li>
+        {% endif %} {% if info.telegram %}
+        <li>✈️ {{ info.telegram }}</li>
+        {% endif %} {% if info.youtube %}
+        <li>▶️ {{ info.youtube }}</li>
+        {% endif %} {% if info.website %}
+        <li>
+          🌐 <a href="{{ info.website }}" target="_blank">{{ info.website }}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+      <h2>Send a Message</h2>
+      <label>Your Name</label>
+      <input type="text" name="name" required />
+
+      <label>Your Email</label>
+      <input type="email" name="email" required />
+
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

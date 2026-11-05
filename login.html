@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}Singer Login{% endblock %} {% block
+content %}
+<section class="section login-section">
+  <div class="login-box">
+    <h1>🔐 Singer Login</h1>
+    <p class="login-hint">Only the singer can upload songs.</p>
+    <form method="POST" action="{{ url_for('login') }}">
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

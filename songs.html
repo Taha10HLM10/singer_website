@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Songs - {{ info.name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <h1 class="page-title">🎧 All Songs</h1>
+  {% if songs %}
+  <div class="song-grid">
+    {% for song in songs %}
+    <div class="song-card">
+      {% if song.cover %}
+      <img
+        class="song-cover-img"
+        src="{{ url_for('static', filename='uploads/' + song.cover) }}"
+        alt="Cover"
+      />
+      {% else %}
+      <div class="song-cover">🎵</div>
+      {% endif %}
+      <p class="song-name">{{ song.title }}</p>
+      <audio controls>
+        <source
+          src="{{ url_for('static', filename='uploads/' + song.file) }}"
+        />
+      </audio>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="empty">No songs uploaded yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
